@@ -1,0 +1,8 @@
+{% macro default(header, subheader, align = 'left') %}
+    <div class="section-heading text-{{ align }}">
+        <h2>{{ header }}</h2>
+        {% if subheader is not empty %}
+            <span>{{ subheader|raw }}</span>
+        {% endif %}
+    </div>
+{% endmacro %}

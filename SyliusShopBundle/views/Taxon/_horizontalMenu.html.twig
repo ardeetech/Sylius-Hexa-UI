@@ -1,0 +1,33 @@
+{% macro item(taxon, isChild) %}
+    {% import _self as macros %}
+
+    {% if taxon.children|length > 0 %}
+        <li class="submenu" {{ sylius_test_html_attribute('menu-item') }}>
+            <a href="javascript:;">
+                {{ taxon.name }}
+            </a>
+            <ul>
+                {% for child_taxon in taxon.children %}
+                    {{ macros.item(child_taxon, true) }}
+                {% endfor %}
+            </ul>
+        </li>
+    {% else %}
+        <li class="">
+            <a href="{{ path('sylius_shop_product_index', {'slug': taxon.slug, '_locale': taxon.translation.locale}) }}"
+               class="" {{ sylius_test_html_attribute('menu-item') }}>
+                {{ taxon.name }}
+            </a>
+        </li>
+    {% endif %}
+{% endmacro %}
+
+{% import _self as macros %}
+
+{% if taxons|length > 0 %}
+    <ul class="nav">
+        {% for taxon in taxons %}
+            {{ macros.item(taxon) }}
+        {% endfor %}
+    </ul>
+{% endif %}

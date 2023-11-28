@@ -1,0 +1,19 @@
+<div class="col mb-3">
+    <h2 class="h2 text-light pb-3 logo w-100">
+        {{ sylius.channel.name }}
+    </h2>
+    <ul class="list-unstyled text-light footer-link-list">
+        <li>
+            {{ sylius.channel.shopBillingData.street }}
+            {{ sylius.channel.shopBillingData.city }}
+            {{ sylius.channel.shopBillingData.postcode }}
+            {{ sylius.channel.shopBillingData.countryCode }}
+        </li>
+        <li>
+            <a class="text-decoration-none" href="tel:{{ sylius.channel.contactPhoneNumber }}">{{ sylius.channel.contactPhoneNumber }}</a>
+        </li>
+        <li>
+            <a class="text-decoration-none" href="mailto:{{ sylius.channel.contactEmail }}">{{ sylius.channel.contactEmail }}</a>
+        </li>
+    </ul>
+</div>
